@@ -17,20 +17,22 @@ Citations
 
 If you use ERMA for research purposes, please cite:
 
-   @inproceedings{stoyanov2011,
-     title={Empirical Risk Minimization of Graphical Model Parameters Given Approximate Inference, Decoding, and Model Structure},
-     author={Veselin Stoyanov, and Alexander Ropson, and Jason Eisner.},
-     booktitle={Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics},
-     volume={15},
-     year={2011}
-   }
+    @inproceedings{stoyanov2011,
+      title={Empirical Risk Minimization of Graphical Model Parameters Given Approximate Inference, Decoding, and Model Structure},
+      author={Veselin Stoyanov, and Alexander Ropson, and Jason Eisner.},
+      booktitle={Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics},
+      volume={15},
+      year={2011}
+    }
 
 or 
 
-   @inproceedings{stoyanov2012,
-     title={Minimum-Risk Training of Approximate {CRF}-Based {NLP} Systems},
-     author={Veselin Stoyanov and Jason Eisner},
-     booktitle={Proceedings of NAACL},
-     year={2012}
-   }
+    @inproceedings{stoyanov2012,
+      title={Minimum-Risk Training of Approximate {CRF}-Based {NLP} Systems},
+      author={Veselin Stoyanov and Jason Eisner},
+      booktitle={Proceedings of NAACL},
+      year={2012}
+    }
 
+Original code was written by Veselin Stoyanov based on the above algorithms.  
+See git history for other contributors.
