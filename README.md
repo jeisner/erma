@@ -1,7 +1,14 @@
 Overview
 ========
 
-ERMA is a software package that implements general CRFs (and MRFs) with no restriction to the model structure. The package includes a training algorithm that performs Empirical Risk Minimization under Approximations (ERMA) as described  here and here). ERMA can optimize several loss functions such as Accuracy, MSE and F-score. ERMA is available freely for academic use. 
+ERMA is a software package that implements general CRFs (and MRFs)
+with no restriction to the model structure. The package includes a
+training algorithm that performs Empirical Risk Minimization under
+Approximations (ERMA) as described 
+[here](http://cs.jhu.edu/~jason/papers/#stoyanov-ropson-eisner-2011)
+and [here](http://cs.jhu.edu/~jason/papers/#stoyanov-eisner-2012-naacl).
+ERMA can optimize several loss functions such as Accuracy, MSE and
+F-score.  
 
 Features
 ========
@@ -17,22 +24,35 @@ Citations
 
 If you use ERMA for research purposes, please cite:
 
-    @inproceedings{stoyanov2011,
-      title={Empirical Risk Minimization of Graphical Model Parameters Given Approximate Inference, Decoding, and Model Structure},
-      author={Veselin Stoyanov, and Alexander Ropson, and Jason Eisner.},
-      booktitle={Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics},
-      volume={15},
-      year={2011}
+    @InProceedings{stoyanov-ropson-eisner-2011,
+      author =      {Veselin Stoyanov and Alexander Ropson and Jason
+		     Eisner},
+      title =       {Empirical Risk Minimization of Graphical Model
+		     Parameters Given Approximate Inference, Decoding, and
+		     Model Structure},
+      booktitle =   {Proceedings of the 14th International Conference on
+		     Artificial Intelligence and Statistics (AISTATS)},
+      series =      {JMLR Workshop and Conference Proceedings},
+      volume =      {15},
+      pages =       {725--733},
+      note =        {Supplementary material (4 pages) also available},
+      year =        {2011},
+      month =       apr,
+      address =     {Fort Lauderdale},
+      url =         {http://cs.jhu.edu/~jason/papers/#stoyanov-ropson-eisner-2011}
     }
 
 or 
 
-    @inproceedings{stoyanov2012,
-      title={Minimum-Risk Training of Approximate {CRF}-Based {NLP} Systems},
-      author={Veselin Stoyanov and Jason Eisner},
-      booktitle={Proceedings of NAACL},
-      year={2012}
+    @InProceedings{stoyanov-eisner-2012-naacl,
+      author =      {Veselin Stoyanov and Jason Eisner},
+      title =       {Minimum-Risk Training of Approximate {CRF}-Based {NLP}
+		     Systems},
+      booktitle =   {Proceedings of NAACL-HLT},
+      pages =       {120--130},
+      year =        {2012},
+      month =       jun,
+      address =     {Montreal},
+      url =         {http://cs.jhu.edu/~jason/papers/#stoyanov-eisner-2012-naacl}
     }
 
-Original code was written by Veselin Stoyanov based on the above algorithms.  
-See git history for other contributors.
