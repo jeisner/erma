@@ -155,7 +155,6 @@ public class Classifier extends Tester{
 
 		tester.outfilename = lConfig.get("pred_fname");
 		LossFunction lfn = Utils.getLossFunction(lConfig); 
-        System.out.println(lfn);
 		tester.test(lConfig.get("features"), lConfig.get("data"), lfn, lConfig);
 
 

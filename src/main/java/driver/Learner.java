@@ -132,6 +132,9 @@ public class Learner {
 			System.out.println("Running cost-sensitive with alpha="+Utils.df.format(cost_alpha));
 			ff=sf;
 		}
+
+		System.out.println("Read total of "+ff.getFeatures().size()+" features.");
+		System.out.println("Reading data from "+dataFile);
 		DataParser dp;
 		ArrayList<DataSample> examples;
 		try{
