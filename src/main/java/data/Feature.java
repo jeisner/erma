@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import regularizer.L1;
 import regularizer.Regularizer;
 import regularizer.Zero;
-import utils.Profiler;
+//import utils.Profiler;
 import utils.Real;
 
 public class Feature {
@@ -68,7 +68,7 @@ public class Feature {
 		lastUpdate=f.lastUpdate;
 	}
 	public void updateWeight(FeatureFile featFile){
-		Profiler.startProcess("update weights");
+		//Profiler.startProcess("update weights");
 		boolean use_reg = featFile.r!=null&&!(featFile.r instanceof Zero) ;
 		double rate = featFile.rate;
 		double old_eta = 0.0;
@@ -111,7 +111,7 @@ public class Feature {
 		}
 		lastUpdate = featFile.getCurrentTime();
 		grad = new Real(0.0);
-		Profiler.endProcess("update weights");
+		//Profiler.endProcess("update weights");
 	}
 	public void setValue(Type t, int val, int ind){
 		types[ind]=t;

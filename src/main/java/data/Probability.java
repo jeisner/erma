@@ -218,6 +218,20 @@ public class Probability {
 		}
 		return maxI;
 	}
+    
+    public double getProb() {
+		int maxI = 0;
+		double max = prob[0].getValue();
+		for(int i=1; i<prob.length; i++){
+			if(prob[i].getValue()>max){
+				maxI=i;
+				max = prob[i].getValue();
+			}
+		}
+		return max;    
+    
+    }
+    
 	public Probability softArgmax(double beta){
 		Probability softm = new Probability(this);
 		softm.exp(beta); 

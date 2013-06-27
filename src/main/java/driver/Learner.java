@@ -18,7 +18,7 @@ import org.apache.commons.cli.ParseException;
 import regularizer.L1;
 import regularizer.Regularizer;
 import regularizer.Zero;
-import utils.Profiler;
+//import utils.Profiler;
 import utils.Real;
 import utils.Utils;
 import data.DataSample;
@@ -117,7 +117,7 @@ public class Learner {
 		FeatureFileParser fp;
 		FeatureFile ff;
 		
-		Profiler.startProcess("reading data");
+		//Profiler.startProcess("reading data");
 		System.out.println("Reading features from "+featureTemplate);
 		try{
 			fp = FeatureFileParser.createParser(featureTemplate);
@@ -132,8 +132,6 @@ public class Learner {
 			System.out.println("Running cost-sensitive with alpha="+Utils.df.format(cost_alpha));
 			ff=sf;
 		}
-		System.out.println("Read total of "+ff.getFeatures().size()+" features.");
-		System.out.println("Reading data from "+dataFile);
 		DataParser dp;
 		ArrayList<DataSample> examples;
 		try{
@@ -142,7 +140,7 @@ public class Learner {
 		}catch(Exception e){ 
 			throw new RuntimeException(e); 
 		}		
-		Profiler.endProcess("reading data");
+		//Profiler.endProcess("reading data");
 		return train(ff,examples, out_ff, learn_iters, learn_rate, lfn);
 	}
 	public ParameterStruct train(FeatureFile ff, ArrayList<DataSample> examples, String out_ff, int learn_iters, Real learn_rate, LossFunction lfn ) {
@@ -191,7 +189,7 @@ public class Learner {
 	}
 
 	public static void main(String[] args){
-		Profiler.start();
+		//Profiler.start();
 		// create Options object
 		Options options = Utils.createOptions();
 		CommandLineParser parser = new GnuParser();
@@ -209,10 +207,10 @@ public class Learner {
 		int learn_iters = Integer.parseInt(lConfig.get("iter"));
 		Real learn_rate = new Real(Double.parseDouble(lConfig.get("learn_rate")));
 		LossFunction lfn = Utils.getLossFunction(lConfig); 
-		Profiler.startProcess("learning");
+		//Profiler.startProcess("learning");
 		learner.train(lConfig.get("features"), lConfig.get("data"), lConfig.get("out_ff"),learn_iters, learn_rate, lfn, lConfig);
-		Profiler.endProcess("learning");
-		Profiler.printProcessTimes();
+		//Profiler.endProcess("learning");
+		//Profiler.printProcessTimes();
 	}
 
 

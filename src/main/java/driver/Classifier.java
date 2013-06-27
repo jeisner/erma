@@ -95,7 +95,7 @@ public class Classifier extends Tester{
 				decoder.decode(bp);
 			for(int v = 0; v < bp.getFactorGraph().numVariables(); v++ ){
 				RV var = bp.getFactorGraph().getVariable(v);
-				outp.println(var+"="+var.getType().getValName(var.getDecode().argmax())); 
+				outp.println(var+"="+var.getType().getValName(var.getDecode().argmax()) + " " + var.getDecode().getProb()); 
 			}
 
 			samp_score = lfn.evaluate(bp);
@@ -155,6 +155,7 @@ public class Classifier extends Tester{
 
 		tester.outfilename = lConfig.get("pred_fname");
 		LossFunction lfn = Utils.getLossFunction(lConfig); 
+        System.out.println(lfn);
 		tester.test(lConfig.get("features"), lConfig.get("data"), lfn, lConfig);
 
 
