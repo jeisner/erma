@@ -56,3 +56,19 @@ or
       url =         {http://cs.jhu.edu/~jason/papers/#stoyanov-eisner-2012-naacl}
     }
 
+BUILD
+========
+
+To build the project:
+
+    mvn compile
+
+To create Eclipse project files:
+
+    mvn eclipse:eclipse
+
+The above command will add the .project and .classpath files with the
+M2_REPO classpath variable. In Eclipse open the Preferences and
+navigate to 'Java --> Build Path --> Classpath Variables'. Add a new
+classpath variable M2_REPO with the path to your local repository
+(e.g. ~/.m2/repository).
