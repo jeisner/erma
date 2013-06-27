@@ -1,0 +1,14 @@
+This DT B-NP
+is VBZ B-VP
+the DT B-NP
+test NN I-NP
+. . O
+
+The DT B-NP
+cat NN I-NP
+is VBZ B-VP
+on IN B-PP
+the DT B-NP
+mat NN I-NP
+. . O
+

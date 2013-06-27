@@ -1,0 +1,12 @@
+The DT B-NP
+cat NN I-NP
+sat VBD B-VP
+on IN B-PP
+the DT B-NP
+mat	NN I-NP
+. . O
+
+John NNP B-NP
+loves VBZ B-VP
+Mary NNP B-NP
+. . O
