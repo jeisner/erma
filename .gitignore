@@ -7,6 +7,9 @@
 *.war
 *.ear
 
+# Maven output directory
+/target
+
 ##### C++
 
 # Compiled Object files
@@ -22,3 +25,9 @@
 *.lai
 *.la
 *.a
+
+##### MISC
+*.pyc
+*~
+.#*
+\#*\#
