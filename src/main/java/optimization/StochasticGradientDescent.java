@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 import regularizer.Regularizer;
-import utils.Profiler;
+//import utils.Profiler;
 import utils.Real;
 import utils.Utils;
 import data.DataSample;
@@ -152,18 +152,18 @@ public class StochasticGradientDescent extends OptimizationMethod {
 						}
 						//System.out.println("to fg "+ current_fg + " best "+ best_params+ endl;
 						DataSample samp = trainData.get(sample_num);
-						Profiler.startProcess("unrolling factor graph");
+						//Profiler.startProcess("unrolling factor graph");
 						FactorGraph bp_fg = currentTheta.toFactorGraph(samp);
-						Profiler.endProcess("unrolling factor graph");
+						//Profiler.endProcess("unrolling factor graph");
 						
-						Profiler.startProcess("inference");
+						//Profiler.startProcess("inference");
 						BeliefPropagation bp = new BeliefPropagation(bp_fg, infProperties);
 						bp.setRunReverse(true);
 
 						//System.out.println(bp.printProperties());
 						//Run inference
 						bp.run();
-						Profiler.endProcess("inference");
+						//Profiler.endProcess("inference");
 						//decode
 //						System.out.println("Variable marginals:");
 //						for(int i = 0; i < bp.getFactorGraph().numVariables(); i++ ) // iterate over all variables in fg
@@ -186,13 +186,13 @@ public class StochasticGradientDescent extends OptimizationMethod {
 
 						totalIters+=bp.numIterations();
 						//Add up the gradients for the batch
-						Profiler.startProcess("update weights");
+						//Profiler.startProcess("update weights");
 						currentTheta.accumulateGradient(bp,regFunction,regBeta);   
 						//If the batch is complete, update the parameters
 						if((sample_num+1)%batch_size==0||sample_num==trainData.size()-1){
 							currentTheta.updateWeights(rate,score,runSMD,lambda,mu,batch_size,regFunction, regBeta);
 						}
-						Profiler.endProcess("update weights");
+						//Profiler.endProcess("update weights");
 					}
 					//score = score/(Real)trainData.nrSamples();
 					//System.out.print(".");
