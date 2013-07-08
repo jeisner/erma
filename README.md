@@ -72,3 +72,27 @@ M2_REPO classpath variable. In Eclipse open the Preferences and
 navigate to 'Java --> Build Path --> Classpath Variables'. Add a new
 classpath variable M2_REPO with the path to your local repository
 (e.g. ~/.m2/repository).
+
+To build a single jar with all the dependencies included:
+
+    mvn compile assembly:single
+
+
+TUTORIAL
+========
+
+To follow the tutorial example from the ERMA website
+(https://sites.google.com/site/ermasoftware/getting-started), run the following commands:
+    
+    # Create a new directory with all the appropriate files.
+    mkdir tmp
+    export TUTORIAL=src/main/resources/tutorial
+    export CONFIG=src/main/config/toy.cfg
+    cp -r src/main/resources/tutorial tmp/tutorial
+    cp -r src/main/config tmp/config
+    # Run the commands within that directory using the jar in the target directory.
+    cd tmp    
+    python ../src/main/python/txt2ff.py tutorial/toy.train.txt
+    java -cp ../target/erma-1.0.1-SNAPSHOT-jar-with-deps.jar driver.Learner -config=config/toy.cfg
+    java -cp ../target/erma-1.0.1-SNAPSHOT-jar-with-deps.jar driver.Tester -config=config/toy.cfg -data=tutorial/toy.test.data.ff -features=tutorial/toy.trained-best.ff
+    java -cp ../target/erma-1.0.1-SNAPSHOT-jar-with-deps.jar driver.Classifier -config=config/toy.cfg -data=tutorial/toy.test.data.ff -features=tutorial/toy.trained-best.ff -pred_fname=tutorial/toy.test.data.predictions
