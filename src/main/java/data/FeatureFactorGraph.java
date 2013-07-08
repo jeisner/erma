@@ -19,7 +19,11 @@ public class FeatureFactorGraph extends FactorGraph {
 		super(facs);
 		featureRefs=fr;
 	}
-
+	
+	public ArrayList<ArrayList<HashMap<Feature, Double>>> getFeatureRefs() {
+	    return featureRefs;
+	}
+	
 	public String toString() {
 		String result = "Total of " + numFactors() + " factors.\n";
 		for( RV v:variables ){

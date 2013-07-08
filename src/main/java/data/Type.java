@@ -1,6 +1,7 @@
 package data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Type {
 	private ArrayList<String> value_map;
@@ -53,5 +54,8 @@ public class Type {
 			first = first && false;
 		}
 		return result+"]";
+	}
+	public List<String> getValueMap() {
+	    return value_map;
 	}
 }

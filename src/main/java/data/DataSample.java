@@ -308,7 +308,7 @@ public class DataSample {
 	    return ffg;
 
 	}
-	private String makeKey(ArrayList<RV> variables){
+	public String makeKey(ArrayList<RV> variables){
 		VariableSet vars = new VariableSet();
 		for(RV v:variables)
 			vars.add(v);
@@ -322,6 +322,10 @@ public class DataSample {
 
 	public Collection<RV> getVariables() {
 		return variables.values();
+	}
+	
+	public ArrayList<FeatureInstance> getFeatureInstances() {
+	    return featureInstances;
 	}
 
 }
