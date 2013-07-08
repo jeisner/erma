@@ -93,6 +93,6 @@ To follow the tutorial example from the ERMA website
     # Run the commands within that directory using the jar in the target directory.
     cd tmp    
     python ../src/main/python/txt2ff.py tutorial/toy.train.txt
-    java -cp ../target/erma-1.0.1-SNAPSHOT-jar-with-deps.jar driver.Learner -config=config/toy.cfg
-    java -cp ../target/erma-1.0.1-SNAPSHOT-jar-with-deps.jar driver.Tester -config=config/toy.cfg -data=tutorial/toy.test.data.ff -features=tutorial/toy.trained-best.ff
-    java -cp ../target/erma-1.0.1-SNAPSHOT-jar-with-deps.jar driver.Classifier -config=config/toy.cfg -data=tutorial/toy.test.data.ff -features=tutorial/toy.trained-best.ff -pred_fname=tutorial/toy.test.data.predictions
+    java -cp ../target/erma-1.0.1-SNAPSHOT-jar-with-dependencies.jar driver.Learner -config=config/toy.cfg
+    java -cp ../target/erma-1.0.1-SNAPSHOT-jar-with-dependencies.jar driver.Tester -config=config/toy.cfg -data=tutorial/toy.test.data.ff -features=tutorial/toy.trained-best.ff
+    java -cp ../target/erma-1.0.1-SNAPSHOT-jar-with-dependencies.jar driver.Classifier -config=config/toy.cfg -data=tutorial/toy.test.data.ff -features=tutorial/toy.trained-best.ff -pred_fname=tutorial/toy.test.data.predictions
