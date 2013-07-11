@@ -10,6 +10,11 @@
 # Maven output directory
 /target
 
+# Eclipse project files
+/.project
+/.classpath
+/.settings
+
 ##### C++
 
 # Compiled Object files
