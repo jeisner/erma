@@ -7,6 +7,8 @@
 package dataParser;
 
 import java_cup.runtime.*;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import data.*;
@@ -136,36 +138,42 @@ public class DataParser extends java_cup.runtime.lr_parser {
   /** <code>error</code> Symbol index. */
   public int error_sym() {return 1;}
 
+    public static void main(String args[]) throws Exception {
+        SymbolFactory sf = new DefaultSymbolFactory();
+        // curExample = new DataSample();
+        if (args.length == 0)
+            new DataParser(new DataFileScanner(System.in, sf), sf).parse();
+        else
+            new DataParser(new DataFileScanner(new java.io.FileInputStream(args[0]), sf), sf).parse();
+    }
 
+    public DataParser(DataFileScanner scan, FeatureFile ff) {
+        super(scan);
+        features = ff;
+        examples = new ArrayList<DataSample>();
+    }
 
-	public static void main(String args[]) throws Exception {
-		SymbolFactory sf = new DefaultSymbolFactory();
-		examples = new ArrayList<DataSample>();
-		//curExample = new DataSample();
-		if (args.length==0) new DataParser(new DataFileScanner(System.in,sf),sf).parse();
-		else new DataParser(new DataFileScanner(new java.io.FileInputStream(args[0]),sf),sf).parse();
-	}
-	public DataParser(DataFileScanner scan, FeatureFile ff) {
-      super(scan);
-	  features = ff;
-	}
- 
-	public static ArrayList<DataSample> examples;
-	public static DataSample curExample;
-	public static FeatureFile features;
-	public static DataParser createParser(String filename, FeatureFile ff) throws Exception {
-		SymbolFactory sf = new DefaultSymbolFactory();
-		examples = new ArrayList<DataSample>();
-		//curExample = new DataSample();
-		return new DataParser(new DataFileScanner(new java.io.FileInputStream(filename),sf),ff);
-	}
-	
-	public ArrayList<DataSample> parseFile() throws Exception {
-		System.out.println("Debug parsing");
-		parse();
-		return examples;
-	}
+    public DataParser(String filename, FeatureFile ff) throws FileNotFoundException {
+        this(new DataFileScanner(new java.io.FileInputStream(filename), new DefaultSymbolFactory()), ff);
+    }
 
+    private ArrayList<DataSample> examples;
+    protected DataSample curExample;
+    protected FeatureFile features;
+
+    public static DataParser createParser(String filename, FeatureFile ff) throws Exception {
+        return new DataParser(filename, ff);
+    }
+
+    public ArrayList<DataSample> parseFile() throws Exception {
+        System.out.println("Debug parsing");
+        parse();
+        return examples;
+    }
+
+    protected void addDataSample(DataSample example) {
+        examples.add(example);
+    }
 
 }
 
@@ -378,7 +386,7 @@ class CUP$DataParser$actions {
               Object RESULT =null;
               // propagate RESULT from NT$0
                 RESULT = (Object) ((java_cup.runtime.Symbol) CUP$DataParser$stack.elementAt(CUP$DataParser$top-3)).value;
-		 parser.examples.add(parser.curExample); 
+		 parser.addDataSample(parser.curExample); 
               CUP$DataParser$result = parser.getSymbolFactory().newSymbol("example",8, ((java_cup.runtime.Symbol)CUP$DataParser$stack.elementAt(CUP$DataParser$top-4)), ((java_cup.runtime.Symbol)CUP$DataParser$stack.peek()), RESULT);
             }
           return CUP$DataParser$result;
