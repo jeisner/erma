@@ -165,6 +165,10 @@ public class DataParser extends java_cup.runtime.lr_parser {
         return new DataParser(filename, ff);
     }
 
+    public static DataParser createParserFromResource(String resource, FeatureFile ff) throws Exception {
+        return new DataParser(new DataFileScanner(DataParser.class.getResourceAsStream(resource), new DefaultSymbolFactory()), ff);
+    }
+    
     public ArrayList<DataSample> parseFile() throws Exception {
         System.out.println("Debug parsing");
         parse();

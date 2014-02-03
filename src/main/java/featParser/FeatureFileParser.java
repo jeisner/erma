@@ -167,6 +167,12 @@ public class FeatureFileParser extends java_cup.runtime.lr_parser {
 		return new FeatureFileParser(new FeatureFileScanner(new java.io.FileInputStream(filename),sf),sf);
 	}
 	
+	public static FeatureFileParser createParserFromResource(String resource) throws Exception {
+        SymbolFactory sf = new DefaultSymbolFactory();
+        ff = new FeatureFile();
+        return new FeatureFileParser(new FeatureFileScanner(FeatureFileParser.class.getResourceAsStream(resource),sf),sf);
+    }
+	
 	public FeatureFile parseFile() throws Exception {
 		//System.out.println("Debug parsing");
 		parse();
