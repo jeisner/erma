@@ -6,13 +6,16 @@
 
 package dataParser;
 
-import java_cup.runtime.*;
-
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import data.*;
-import utils.*;
+
+import java_cup.runtime.DefaultSymbolFactory;
+import java_cup.runtime.SymbolFactory;
+import data.DataSample;
+import data.FeatureFile;
+import data.Type;
 
 /** CUP v0.11a beta 20060608 generated parser.
   * @version Wed Oct 10 16:56:26 EDT 2012
@@ -157,6 +160,10 @@ public class DataParser extends java_cup.runtime.lr_parser {
         this(new DataFileScanner(new java.io.FileInputStream(filename), new DefaultSymbolFactory()), ff);
     }
 
+    public DataParser(InputStream is, FeatureFile ff) throws FileNotFoundException {
+        this(new DataFileScanner(is, new DefaultSymbolFactory()), ff);
+    }
+
     private ArrayList<DataSample> examples;
     protected DataSample curExample;
     protected FeatureFile features;
@@ -165,8 +172,8 @@ public class DataParser extends java_cup.runtime.lr_parser {
         return new DataParser(filename, ff);
     }
 
-    public static DataParser createParserFromResource(String resource, FeatureFile ff) throws Exception {
-        return new DataParser(new DataFileScanner(DataParser.class.getResourceAsStream(resource), new DefaultSymbolFactory()), ff);
+    public static DataParser createParser(InputStream is, FeatureFile ff) throws Exception {
+        return new DataParser(new DataFileScanner(is, new DefaultSymbolFactory()), ff);
     }
     
     public ArrayList<DataSample> parseFile() throws Exception {

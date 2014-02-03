@@ -6,10 +6,15 @@
 
 package featParser;
 
-import java_cup.runtime.*;
+import java.io.InputStream;
 import java.util.ArrayList;
-import data.*;
-import utils.*;
+
+import java_cup.runtime.DefaultSymbolFactory;
+import java_cup.runtime.Symbol;
+import java_cup.runtime.SymbolFactory;
+import utils.Real;
+import data.FeatureFile;
+import data.Type;
 
 /** CUP v0.11a beta 20060608 generated parser.
   * @version Wed Oct 10 16:56:26 EDT 2012
@@ -167,10 +172,10 @@ public class FeatureFileParser extends java_cup.runtime.lr_parser {
 		return new FeatureFileParser(new FeatureFileScanner(new java.io.FileInputStream(filename),sf),sf);
 	}
 	
-	public static FeatureFileParser createParserFromResource(String resource) throws Exception {
+	public static FeatureFileParser createParser(InputStream is) throws Exception {
         SymbolFactory sf = new DefaultSymbolFactory();
         ff = new FeatureFile();
-        return new FeatureFileParser(new FeatureFileScanner(FeatureFileParser.class.getResourceAsStream(resource),sf),sf);
+        return new FeatureFileParser(new FeatureFileScanner(is,sf),sf);
     }
 	
 	public FeatureFile parseFile() throws Exception {
